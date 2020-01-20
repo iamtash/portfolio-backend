@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_190406) do
+ActiveRecord::Schema.define(version: 2020_01_20_004635) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "github_url"
     t.string "demo_url"
     t.text "description"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
