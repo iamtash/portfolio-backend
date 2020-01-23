@@ -12,9 +12,21 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    project = Project.find_by(id: params[:id])
+    if project 
+      if params[:like]
+        project.update(likes: project.likes + 1) 
+      else
+        project.update(project_params)
+      end
+      render json: project.to_json()
+    end
   end
 
   def destroy
+    project = Project.find_by(id: params[:id])
+    project.destroy
+    render json: project.to_json(only: [:id])
   end
 
   private 
